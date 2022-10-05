@@ -1,10 +1,6 @@
 pipeline {
-    agent { docker { image 'maven:3.8.6-openjdk-11-slim' } }
+    agent any
     stages {
-        stage('Initialize'){
-            def dockerHome = tool 'myDocker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
         stage('build') {
             steps {
                 sh 'mvn --version'
